@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: assigment
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  datasource:
+    url: jdbc:h2:mem:${H2_SQL_DB}
+    username: ${H2_SQL_USERNAME}
+    password: ${H2_SQL_PASSWORD}
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: ${JPA_SHOW_SQL}
+    open-in-view: true
+    hibernate:
+      ddl-auto: create-drop
+
+server:
+  port: ${SERVER_PORT}
+  servlet:
+    contextPath: /api
+
+springdoc:
+  api-docs:
+    enabled: true
+
+logging:
+  level:
+    root: INFO
+  file:
+    name: logs/info.log

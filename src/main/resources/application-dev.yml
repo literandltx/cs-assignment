@@ -1,0 +1,9 @@
+# server
+SERVER_PORT: 8080
+ACTIVE_PROFILE: dev
+
+# h2 database
+H2_SQL_USERNAME: sa
+H2_SQL_PASSWORD: password
+H2_SQL_DB: database
+JPA_SHOW_SQL: false
