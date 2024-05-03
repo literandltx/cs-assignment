@@ -73,13 +73,14 @@ public class UserServiceV1 implements UserService {
             final FullUpdateUserRequest request,
             final Long id
     ) {
-        final User model = userMapper.toModel(request);
-
         if (!userRepository.existsById(id)) {
             throw new EntityNotFoundException("Cannot find user by id: " + id);
         }
 
+        final User model = userMapper.toModel(request);
         dateValidation(model);
+
+        model.setId(id);
 
         return userMapper.toDto(userRepository.save(model));
     }
